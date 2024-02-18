@@ -1,0 +1,8 @@
+
+server:
+  port : 8080
+  servlet:
+    context-path: "/uk"
+
+bank-holidays:
+  url: "http://localhost:${wiremock.server.port}/bank-holidays.json"
