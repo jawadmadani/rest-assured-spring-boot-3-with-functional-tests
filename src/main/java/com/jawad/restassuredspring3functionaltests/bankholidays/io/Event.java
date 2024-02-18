@@ -11,12 +11,12 @@ import lombok.Setter;
 public class Event extends BaseModel {
 
     @JsonProperty("title")
-    public String title;
+    private String title;
     @JsonProperty("date")
-    public String date;
+    private String date;
     @JsonProperty("notes")
-    public String notes;
+    private String notes;
     @JsonProperty("bunting")
-    public boolean bunting;
+    private boolean bunting;
 
 }

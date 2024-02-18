@@ -13,8 +13,8 @@ import java.util.ArrayList;
 public class NorthernIreland extends BaseModel {
 
     @JsonProperty("division")
-    public String division;
+    private String division;
     @JsonProperty("events")
-    public ArrayList<Event> events;
+    private ArrayList<Event> events;
 
 }

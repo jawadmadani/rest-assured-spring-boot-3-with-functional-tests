@@ -16,7 +16,7 @@ public class FixtureReader {
         return convertResponseToObject(fileContent, cls);
     }
 
-    protected static String readFileContent(String filename) {
+    public static String readFileContent(String filename) {
         InputStream resource;
         String fixtureContent;
         try {

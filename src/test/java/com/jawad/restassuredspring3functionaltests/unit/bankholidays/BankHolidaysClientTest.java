@@ -1,6 +1,8 @@
-package com.jawad.restassuredspring3functionaltests.bankholidays;
+package com.jawad.restassuredspring3functionaltests.unit.bankholidays;
 
 import com.jawad.restassuredspring3functionaltests.FixtureReader;
+import com.jawad.restassuredspring3functionaltests.GeneralException;
+import com.jawad.restassuredspring3functionaltests.bankholidays.BankHolidaysClient;
 import com.jawad.restassuredspring3functionaltests.bankholidays.io.BankHolidaysResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -31,14 +33,14 @@ class BankHolidaysClientTest {
 
     @Test
     void shouldReturn200BankHolidaysResponse() {
-        ReflectionTestUtils.setField(client, "bankHolidaysUrl", "http://localhost:${wiremock.server.port}/bank-holidays.json");
+        ReflectionTestUtils.setField(client, "bankHolidaysUrl", "http://localhost/bank-holidays.json");
         when(mockRestTemplate.exchange(anyString(), any(HttpMethod.class), any(HttpEntity.class), eq(BankHolidaysResponse.class))).thenReturn(createBankHolidaysResponse());
 
         BankHolidaysResponse response = client.makeCallToBankHolidaysApi();
 
-        assertEquals("england-and-wales", response.englandAndWales.division);
-        assertEquals("New Year’s Day", response.englandAndWales.events.getFirst().title);
-        assertEquals("2018-01-01", response.englandAndWales.events.getFirst().date);
+        assertEquals("england-and-wales", response.getEnglandAndWales().getDivision());
+        assertEquals("New Year’s Day", response.getEnglandAndWales().getEvents().getFirst().getTitle());
+        assertEquals("2018-01-01", response.getEnglandAndWales().getEvents().getFirst().getDate());
     }
 
     @Test

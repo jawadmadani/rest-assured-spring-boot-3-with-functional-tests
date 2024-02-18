@@ -1,31 +1,31 @@
-package com.jawad.restassuredspring3functionaltests.bankholidays;
+package com.jawad.restassuredspring3functionaltests.ipinformation;
 
 import com.jawad.restassuredspring3functionaltests.GeneralException;
-import com.jawad.restassuredspring3functionaltests.bankholidays.io.BankHolidaysResponse;
+import com.jawad.restassuredspring3functionaltests.ipinformation.io.IpInformationResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 
 @Component
-public class BankHolidaysClient {
+public class IpInformationClient {
 
     private final RestTemplate restTemplate;
 
-    @Value("${bank-holidays.url}")
-    private String bankHolidaysUrl;
+    @Value("${ip-information.url}")
+    private String ipInformationUrl;
 
-    public BankHolidaysClient(RestTemplate restTemplate) {
+    public IpInformationClient(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    public BankHolidaysResponse makeCallToBankHolidaysApi() {
+    public IpInformationResponse callIpInformationApi() {
         try {
-            String url = bankHolidaysUrl;
-            ResponseEntity<BankHolidaysResponse> response = restTemplate.exchange(url, HttpMethod.GET, createHttpHeaders(), BankHolidaysResponse.class);
+            String url = ipInformationUrl;
+            ResponseEntity<IpInformationResponse> response = restTemplate.exchange(url, HttpMethod.GET, createHttpHeaders(), IpInformationResponse.class);
             return response.getBody();
         } catch (Exception e) {
-            throw new GeneralException("Bank holidays api did not respond correctly, " + e.getMessage(), e);
+            throw new GeneralException("Ip-information api is down, " + e.getMessage(), e);
         }
     }
 

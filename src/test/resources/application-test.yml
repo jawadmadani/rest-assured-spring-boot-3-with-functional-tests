@@ -6,3 +6,6 @@ server:
 
 bank-holidays:
   url: "http://localhost:${wiremock.server.port}/bank-holidays.json"
+
+ip-information:
+  url: "http://localhost:${wiremock.server.port}/ipinfo.io/json"

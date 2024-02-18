@@ -11,9 +11,9 @@ import lombok.Setter;
 public class BankHolidaysResponse extends BaseModel {
 
     @JsonProperty("england-and-wales")
-    public EnglandAndWales englandAndWales;
+    private EnglandAndWales englandAndWales;
     @JsonProperty("scotland")
-    public Scotland scotland;
+    private Scotland scotland;
     @JsonProperty("northern-ireland")
-    public NorthernIreland northernIreland;
+    private NorthernIreland northernIreland;
 }

@@ -1,6 +1,8 @@
-package com.jawad.restassuredspring3functionaltests.bankholidays;
+package com.jawad.restassuredspring3functionaltests.unit.bankholidays;
 
 import com.jawad.restassuredspring3functionaltests.FixtureReader;
+import com.jawad.restassuredspring3functionaltests.bankholidays.BankHolidaysClient;
+import com.jawad.restassuredspring3functionaltests.bankholidays.BankHolidaysService;
 import com.jawad.restassuredspring3functionaltests.bankholidays.io.BankHolidaysResponse;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -32,9 +34,9 @@ class BankHolidaysServiceTest {
         // verify the number of times it calls this method in a single execution
         verify(mockBankHolidaysClient, times(1)).makeCallToBankHolidaysApi();
 
-        assertEquals("england-and-wales", response.englandAndWales.division);
-        assertEquals("New Year’s Day", response.englandAndWales.events.getFirst().title);
-        assertEquals("2018-01-01", response.englandAndWales.events.getFirst().date);
+        assertEquals("england-and-wales", response.getEnglandAndWales().getDivision());
+        assertEquals("New Year’s Day", response.getEnglandAndWales().getEvents().getFirst().getTitle());
+        assertEquals("2018-01-01", response.getEnglandAndWales().getEvents().getFirst().getDate());
     }
 
     private BankHolidaysResponse createBankHolidaysResponse() {

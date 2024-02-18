@@ -1,4 +1,4 @@
-package com.jawad.restassuredspring3functionaltests.bankholidays;
+package com.jawad.restassuredspring3functionaltests;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

@@ -6,3 +6,6 @@ server:
 
 bank-holidays:
   url: "https://www.gov.uk/bank-holidays.json"
+
+ip-information:
+  url: "https://www.ipinfo.io/json"
